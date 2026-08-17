@@ -51,13 +51,12 @@ VS Code Live Server를 사용해도 된다. 프론트 주소와 API 주소의 or
 → 최근 문서와 수동 편집 결과를 localStorage에 저장
 ```
 
-현재 API 주소는 `js/api.js`의 `requestOcrDocument()`에 있다.
+API 주소는 `window.KB_POC_OCR_API_URL`로 주입할 수 있다. 값을 지정하지 않으면
+로컬 OCR 서버(`http://127.0.0.1:19816/uploadOCR`)를 사용한다. 배포 환경에서는
+`js/api.js`를 불러오기 전에 다음처럼 환경에 맞는 주소를 설정한다.
 
 ```javascript
-fetch("http://172.30.1.18:19816/uploadOCR", {
-  method: "POST",
-  body: form,
-});
+window.KB_POC_OCR_API_URL = "https://example.invalid/kb_poc/api/uploadOCR";
 ```
 
 전송하는 multipart/form-data 항목은 다음 두 개다.

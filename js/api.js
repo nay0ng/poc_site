@@ -7,6 +7,7 @@
 
 const DIAGNOSTIC_LOG_KEY = "kb_poc_diagnostic_logs";
 const DIAGNOSTIC_LOG_LIMIT = 300;
+const OCR_API_URL = window.KB_POC_OCR_API_URL || "http://127.0.0.1:19816/uploadOCR";
 
 // 화면에서 발생한 API/응답 변환 오류를 브라우저에 보관한다.
 // OCR 전문, 개인정보 문자열, 이미지 base64는 로그에 넣지 않는다.
@@ -151,7 +152,7 @@ async function requestOcrDocument(file, settings) {
 
   let response;
   try {
-    response = await fetch("http://172.30.1.18:19816/uploadOCR", {
+    response = await fetch(OCR_API_URL, {
       method: "POST",
       body: form,
     });

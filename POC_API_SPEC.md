@@ -107,8 +107,8 @@ API, policy, 엔진 결과와 다운로드 파일은 실제 백엔드가 사용�
 | key | 설명 | value 타입 | Nullable | 예시 |
 | --- | --- | --- | --- | --- |
 | `category` | 개인정보 유형 | String | X | `resident_registration_number` |
-| `text` | OCR에서 탐지한 문자열 | String | X | `110111-2825531` |
-| `normalized_text` | 탐지용 정규화 문자열 | String | X | `110111-2825531` |
+| `text` | OCR에서 탐지한 문자열 | String | X | `******-*******` |
+| `normalized_text` | 탐지용 정규화 문자열 | String | X | `******-*******` |
 | `line_ids` | 관련 OCR 줄 ID | Array&lt;Integer&gt; | X | `[9]` |
 | `raw_span` | OCR 원문 내 시작·끝 문자 위치 | Array&lt;Integer&gt; | X | `[340, 354]` |
 | `token_ids` | 관련 OCR token ID | Array&lt;Integer&gt; | X | `[41]` |
@@ -324,8 +324,8 @@ Request body 없음
       "detections": [
         {
           "category": "resident_registration_number",
-          "text": "110111-2825531",
-          "normalized_text": "110111-2825531",
+          "text": "******-*******",
+          "normalized_text": "******-*******",
           "line_ids": [9],
           "raw_span": [340, 354],
           "token_ids": [41],
@@ -500,8 +500,8 @@ Request body 없음
   [
     {
       "category": "resident_registration_number",
-      "text": "110111-2825531",
-      "normalized_text": "110111-2825531",
+      "text": "******-*******",
+      "normalized_text": "******-*******",
       "line_ids": [9],
       "raw_span": [340, 354],
       "token_ids": [41],
