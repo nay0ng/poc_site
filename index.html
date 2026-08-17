@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>문서 인식 뷰어 · KB증권 개인정보 검출·마스킹</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-frame">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand-mark" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+          <rect x="1" y="3" width="18" height="3" fill="currentColor" />
+          <rect x="1" y="8.5" width="11" height="3" fill="currentColor" />
+          <rect x="1" y="14" width="18" height="3" fill="currentColor" />
+        </svg>
+        <div class="brand-text">
+          <strong>문서 인식 뷰어</strong>
+          <span>PII Detection &amp; Masking</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="file-panel" id="filePanel">
+
+        <div class="panel-section">
+          <h3 class="mb-0">개인정보 검출 옵션</h3>
+          <p class="form-help mt-0" style="margin-bottom:10px;">문서를 선택하는 순간 아래 옵션이 그 문서에 적용됩니다.</p>
+          <div id="optionsInline"></div>
+        </div>
+
+        <div class="panel-section">
+          <label class="add-file-row" id="addFileRow">
+            <span class="add-file-icon" aria-hidden="true">+</span>
+            <span class="add-file-copy">
+              <span class="add-file-title">문서 선택</span>
+              <span class="add-file-hint">PDF · JPG · PNG · TIFF</span>
+            </span>
+            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.tiff,.tif" />
+          </label>
+          <p class="form-help mt-0">한 번에 한 문서씩, 선택하면 바로 인식이 시작됩니다.</p>
+        </div>
+
+        <div class="panel-section panel-section-grow">
+          <div class="panel-title-row">
+            <h3 class="mb-0">최근 인식 문서</h3>
+            <button class="btn btn-ghost btn-sm" id="btnClearHistory">기록 지우기</button>
+          </div>
+          <ul class="file-list" id="fileList"></ul>
+        </div>
+
+      </aside>
+
+      <main class="viewer-main viewer-fit" id="viewerMain"></main>
+    </div>
+  </div>
+
+  <script src="js/vendor/UTIF.js"></script>
+  <script src="js/vendor/pdf.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/pii-types.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/image-pdf.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
